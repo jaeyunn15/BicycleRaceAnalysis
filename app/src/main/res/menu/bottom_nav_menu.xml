@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/navigation_player_list"
+        android:icon="@drawable/ic_baseline_people_outline_24"
+        app:showAsAction="ifRoom"
+        android:enabled="true"
+        android:title="@string/player" />
+
+    <item
+        android:id="@+id/navigation_game_list"
+        android:icon="@drawable/ic_baseline_format_list_numbered_24"
+        app:showAsAction="ifRoom"
+        android:enabled="true"
+        android:title="@string/Game" />
+</menu>

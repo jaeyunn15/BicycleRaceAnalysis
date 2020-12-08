@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">BicycleRaceAnalysis</string>
+    <string name="player">선수 정보</string>
+    <string name="Game">경기 정보</string>
+</resources>
