@@ -9,6 +9,7 @@ import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.project.bicycleraceanalysis.MainActivity
+import com.project.bicycleraceanalysis.ui.viewModel.SharedViewModel
 
 abstract class BaseFragment<T : ViewDataBinding, R : BaseViewModel>() : Fragment(){
     lateinit var viewDataBinding: T
@@ -19,6 +20,8 @@ abstract class BaseFragment<T : ViewDataBinding, R : BaseViewModel>() : Fragment
 
     lateinit var mainActivity: MainActivity
 
+    lateinit var sharedViewModel: SharedViewModel
+
     abstract fun initStartView()
 
     abstract fun initDataBinding()
@@ -28,6 +31,7 @@ abstract class BaseFragment<T : ViewDataBinding, R : BaseViewModel>() : Fragment
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mainActivity = activity as MainActivity
+        sharedViewModel = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

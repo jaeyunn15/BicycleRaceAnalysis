@@ -36,7 +36,11 @@ class PlayerFragment : BaseFragment<FragmentPlayerBinding, PlayerViewModel>() {
     }
 
     override fun initAfterBinding() {
-
+        playerInfoAdapter.setOnItemClickListener {
+            val playerDetail = PlayerDetailFragment()
+            sharedViewModel.player_id.postValue(it)
+            replaceFrag(playerDetail)
+        }
     }
 
 

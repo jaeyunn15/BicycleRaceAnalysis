@@ -6,4 +6,5 @@ import io.reactivex.Single
 
 interface PlayersRemoteDataSource {
     fun getPlayersList(page:Int) : Single<ResPlayerInfoListDto>
+    fun getPlayerDetailInfo(racer_no:Int) : Single<ResPlayerInfoListDto>
 }

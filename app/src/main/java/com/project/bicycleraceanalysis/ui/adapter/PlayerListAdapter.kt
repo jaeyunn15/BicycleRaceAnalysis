@@ -11,9 +11,15 @@ import com.project.bicycleraceanalysis.model.response.ResPlayerInfoItemDto
 import com.project.bicycleraceanalysis.util.getAgeFromYear
 import org.koin.ext.getScopeName
 
-class PlayerListAdapter () : RecyclerView.Adapter<PlayerListAdapter.PlayerInfoViewHolder>() {
+class PlayerListAdapter: RecyclerView.Adapter<PlayerListAdapter.PlayerInfoViewHolder>() {
 
     private var playerInfoList : ArrayList<ResPlayerInfoItemDto> = ArrayList()
+
+    private var listener: ((id: Int) -> Unit)? = null
+
+    fun setOnItemClickListener(listener: (id: Int) -> Unit) {
+        this.listener = listener
+    }
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -43,7 +49,7 @@ class PlayerListAdapter () : RecyclerView.Adapter<PlayerListAdapter.PlayerInfoVi
                 binding.tvPlayerAge.text = getAgeFromYear(item.stnd_year).toString()
             }
             itemView.setOnClickListener {
-                //
+                listener?.invoke(Integer.parseInt(item.racer_no))
             }
         }
     }

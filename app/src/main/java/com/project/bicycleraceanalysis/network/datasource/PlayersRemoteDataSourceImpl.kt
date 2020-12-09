@@ -13,4 +13,10 @@ class PlayersRemoteDataSourceImpl (private val playerApi: PlayerApi) : PlayersRe
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
     }
+
+    override fun getPlayerDetailInfo(racer_no: Int): Single<ResPlayerInfoListDto> {
+        return playerApi.getPlayerDetailInfo(racer_no = racer_no)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+    }
 }

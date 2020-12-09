@@ -9,4 +9,8 @@ class PlayerRepoImpl (private val playersRemoteDataSource: PlayersRemoteDataSour
         return playersRemoteDataSource.getPlayersList(page)
     }
 
+    override fun getPlayerDetailInfo(racer_no: Int): Single<ResPlayerInfoListDto> {
+        return playersRemoteDataSource.getPlayerDetailInfo(racer_no)
+    }
+
 }

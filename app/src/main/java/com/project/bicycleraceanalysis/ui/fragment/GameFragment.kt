@@ -36,7 +36,13 @@ class GameFragment : BaseFragment<FragmentGameBinding, GameViewModel>() {
     }
 
     override fun initAfterBinding() {
-        //
+        val gameDayList = SelectRaceFragment()
+        gameListAdapter.setOnItemClickListener { year, month, day ->
+            sharedViewModel.game_year.postValue(year)
+            sharedViewModel.game_month.postValue(month)
+            sharedViewModel.game_day.postValue(day)
+            replaceFrag(gameDayList)
+        }
     }
 
 

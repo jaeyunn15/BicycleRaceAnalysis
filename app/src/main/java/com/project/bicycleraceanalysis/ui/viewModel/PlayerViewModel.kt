@@ -13,6 +13,9 @@ class PlayerViewModel(private val repo : PlayerRepoImpl) : BaseViewModel(){
     val playerInfoListLiveData : LiveData<ArrayList<ResPlayerInfoItemDto>>
         get() = _playerInfoList
 
+    private val _playerDetailInfo = MutableLiveData<ResPlayerInfoItemDto>()
+    val _playerDetailInfoLiveData : LiveData<ResPlayerInfoItemDto>
+        get() = _playerDetailInfo
 
     fun getPlayerList(page:Int){
         addDisposable(
@@ -25,6 +28,18 @@ class PlayerViewModel(private val repo : PlayerRepoImpl) : BaseViewModel(){
                         Log.d("data : ", dat.racer_nm)
                     }
                 }, {
+                    Log.d("TAG", it.message.toString())
+                })
+        )
+    }
+
+    fun getPlayerDetailInfo(racer_no : Int){
+        addDisposable(
+            repo.getPlayerDetailInfo(racer_no)
+                .subscribe({
+                    Log.d("한 명의 선수 : ", it[0].racer_nm)
+                    _playerDetailInfo.postValue(it[0])
+                },{
                     Log.d("TAG", it.message.toString())
                 })
         )

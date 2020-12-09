@@ -5,4 +5,5 @@ import io.reactivex.Single
 
 interface PlayerRepo {
     fun getPlayerList(page:Int) : Single<ResPlayerInfoListDto>
+    fun getPlayerDetailInfo(racer_no:Int) : Single<ResPlayerInfoListDto>
 }

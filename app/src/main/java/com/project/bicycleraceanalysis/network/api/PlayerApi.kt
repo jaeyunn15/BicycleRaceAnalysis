@@ -13,4 +13,9 @@ interface PlayerApi {
         @Path("page")page : Int
     ): Single<ResPlayerInfoListDto>
 
+    @GET("player/{racer_no}")
+    fun getPlayerDetailInfo(
+            @Path("racer_no")racer_no : Int
+    ): Single<ResPlayerInfoListDto>
+
 }

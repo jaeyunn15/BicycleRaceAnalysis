@@ -38,6 +38,10 @@ class MainActivity : AppCompatActivity() {
         replace(R.id.container, fragment)
     }
 
+    fun setBottomNavigationVisibility(visibility : Int){
+        activityMainBinding.navView.visibility = visibility
+    }
+
     private val playerFragment : PlayerFragment by lazy { PlayerFragment() }
     private val gameFragment : GameFragment by lazy{ GameFragment() }
 }
